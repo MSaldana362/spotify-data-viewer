@@ -42,4 +42,13 @@ void SpotifyLibrary::fromJson(const QJsonObject &json)
             _albums.append(album);
         }
     }
+
+    QJsonArray const artists = json["artists"].toArray();
+    for (const QJsonValue& value : artists) {
+        if (value.isObject()) {
+            SpotifyArtist* artist = new SpotifyArtist;
+            artist->fromLibraryJson(value.toObject());
+            _artists.append(artist);
+        }
+    }
 }
