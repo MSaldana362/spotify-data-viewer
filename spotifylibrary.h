@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "spotifytrack.h"
+#include "spotifyalbum.h"
 
 class SpotifyLibrary : public QObject
 {
@@ -13,11 +14,13 @@ public:
     bool loadFile(const QString& filepath);
 
     QList<SpotifyTrack*> tracks() const { return _tracks; }
+    QList<SpotifyAlbum*> albums() const { return _albums; }
 
 private:
     void fromJson(const QJsonObject& json);
 
     QList<SpotifyTrack*> _tracks;
+    QList<SpotifyAlbum*> _albums;
 
 signals:
 };

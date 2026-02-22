@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     library.loadFile(filepath);
 
     const auto tracks = library.tracks();
+    const auto albums = library.albums();
 
     qDebug() << "Total Tracks:" << tracks.count();
 
@@ -29,6 +30,18 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "\t" << tracks.last()->artist();
     qDebug() << "\t" << tracks.last()->name();
     qDebug() << "\t" << tracks.last()->uri();
+
+    qDebug() << "Total Albums:" << albums.count();
+
+    qDebug() << "First:";
+    qDebug() << "\t" << albums.first()->artist();
+    qDebug() << "\t" << albums.first()->name();
+    qDebug() << "\t" << albums.first()->uri();
+
+    qDebug() << "Last:";
+    qDebug() << "\t" << albums.last()->artist();
+    qDebug() << "\t" << albums.last()->name();
+    qDebug() << "\t" << albums.last()->uri();
 }
 
 MainWindow::~MainWindow()

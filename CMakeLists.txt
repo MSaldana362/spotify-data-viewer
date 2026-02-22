@@ -13,6 +13,7 @@ qt_add_executable(spotify-data-viewer
     mainwindow.ui
     spotifylibrary.h spotifylibrary.cpp
     spotifytrack.h spotifytrack.cpp
+    spotifyalbum.h spotifyalbum.cpp
 )
 
 target_link_libraries(spotify-data-viewer
