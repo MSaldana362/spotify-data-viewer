@@ -2,12 +2,21 @@
 #include "ui_mainwindow.h"
 
 #include "spotify/spotifylibrary.h"
+#include "widgets/databrowserwidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    DataBrowserWidget* libraryDataWidget = new DataBrowserWidget(ui->tabLibrary);
+    ui->tabLibrary->layout()->addWidget(libraryDataWidget);
+
+    DataBrowserWidget* playlistsDataWidget = new DataBrowserWidget(ui->tabPlaylists);
+    ui->tabPlaylists->layout()->addWidget(playlistsDataWidget);
+
+
 
     QString filepath = "/home/jiji/Downloads/Spotify Data/Spotify Account Data/YourLibrary.json";
 
