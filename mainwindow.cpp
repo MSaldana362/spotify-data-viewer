@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "spotifylibrary.h"
+#include "spotify/spotifylibrary.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
