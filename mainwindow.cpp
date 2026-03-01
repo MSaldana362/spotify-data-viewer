@@ -2,7 +2,8 @@
 #include "ui_mainwindow.h"
 
 #include "spotify/spotifylibrary.h"
-#include "widgets/databrowserwidget.h"
+#include "widgets/librarybrowserwidget.h"
+#include "widgets/playlistbrowserwidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,11 +11,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    DataBrowserWidget* libraryDataWidget = new DataBrowserWidget(ui->tabLibrary);
-    ui->tabLibrary->layout()->addWidget(libraryDataWidget);
+    LibraryBrowserWidget* libraryWidget = new LibraryBrowserWidget(ui->tabLibrary);
+    ui->tabLibrary->layout()->addWidget(libraryWidget);
 
-    DataBrowserWidget* playlistsDataWidget = new DataBrowserWidget(ui->tabPlaylists);
-    ui->tabPlaylists->layout()->addWidget(playlistsDataWidget);
+    PlaylistBrowserWidget* playlistWidget = new PlaylistBrowserWidget(ui->tabPlaylists);
+    ui->tabPlaylists->layout()->addWidget(playlistWidget);
 
 
 

@@ -15,7 +15,9 @@ qt_add_executable(spotify-data-viewer
     spotify/spotifytrack.h spotify/spotifytrack.cpp
     spotify/spotifyalbum.h spotify/spotifyalbum.cpp
     spotify/spotifyartist.h spotify/spotifyartist.cpp
-    widgets/databrowserwidget.h widgets/databrowserwidget.cpp widgets/databrowserwidget.ui
+    widgets/librarybrowserwidget.h widgets/librarybrowserwidget.cpp widgets/librarybrowserwidget.ui
+    widgets/playlistbrowserwidget.h widgets/playlistbrowserwidget.cpp widgets/playlistbrowserwidget.ui
+    widgets/librarytracksmodel.h widgets/librarytracksmodel.cpp
 )
 
 target_link_libraries(spotify-data-viewer
