@@ -3,9 +3,9 @@
 LibraryTracksModel::LibraryTracksModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
-    _headers.insert(TrackColumn, "Track");
     _headers.insert(ArtistColumn, "Artist");
     _headers.insert(AlbumColumn, "Album");
+    _headers.insert(TrackColumn, "Track");
 }
 
 QVariant LibraryTracksModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -43,12 +43,12 @@ QVariant LibraryTracksModel::data(const QModelIndex &index, int role) const
 
     if (role == Qt::DisplayRole) {
         switch (col) {
-        case TrackColumn:
-            return _tracks.at(row)->name();
         case ArtistColumn:
             return _tracks.at(row)->artist();
         case AlbumColumn:
             return _tracks.at(row)->album();
+        case TrackColumn:
+            return _tracks.at(row)->name();
         default:
             break;
         }

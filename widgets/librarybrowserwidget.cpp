@@ -23,7 +23,6 @@ LibraryBrowserWidget::LibraryBrowserWidget(QWidget *parent)
     ui->tableTracks->setModel(_tracksProxyModel);
     ui->tableAlbums->setModel(_albumsProxyModel);
 
-    // ui->tableTracks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableTracks->horizontalHeader()->setStretchLastSection(true);
     ui->tableTracks->setSortingEnabled(true);
     ui->tableTracks->sortByColumn(LibraryTracksModel::ArtistColumn, Qt::AscendingOrder);

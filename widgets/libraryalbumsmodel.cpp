@@ -3,8 +3,8 @@
 LibraryAlbumsModel::LibraryAlbumsModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
-    _headers.insert(AlbumColumn, "Album");
     _headers.insert(ArtistColumn, "Artist");
+    _headers.insert(AlbumColumn, "Album");
 }
 
 QVariant LibraryAlbumsModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -42,10 +42,10 @@ QVariant LibraryAlbumsModel::data(const QModelIndex &index, int role) const
 
     if (role == Qt::DisplayRole) {
         switch(col) {
-        case AlbumColumn:
-            return _albums.at(row)->name();
         case ArtistColumn:
             return _albums.at(row)->artist();
+        case AlbumColumn:
+            return _albums.at(row)->name();
         }
     }
 

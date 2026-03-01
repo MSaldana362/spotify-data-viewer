@@ -25,9 +25,9 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     enum Column {
-        TrackColumn = 0,
-        ArtistColumn,
+        ArtistColumn = 0,
         AlbumColumn,
+        TrackColumn,
     };
 
     void setTracks(const QList<SpotifyTrack*> &value) { _tracks = value; }
