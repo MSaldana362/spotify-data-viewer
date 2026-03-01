@@ -45,13 +45,10 @@ QVariant LibraryTracksModel::data(const QModelIndex &index, int role) const
         switch (col) {
         case TrackColumn:
             return _tracks.at(row)->name();
-            break;
         case ArtistColumn:
             return _tracks.at(row)->artist();
-            break;
         case AlbumColumn:
             return _tracks.at(row)->album();
-            break;
         default:
             break;
         }
