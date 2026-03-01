@@ -1,13 +1,12 @@
-#include "libraryalbumsmodel.h"
+#include "libraryartistsmodel.h"
 
-LibraryAlbumsModel::LibraryAlbumsModel(QObject *parent)
+LibraryArtistsModel::LibraryArtistsModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
     _headers.insert(ArtistColumn, "Artist");
-    _headers.insert(AlbumColumn, "Album");
 }
 
-QVariant LibraryAlbumsModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant LibraryArtistsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         return _headers.at(section);
@@ -16,15 +15,15 @@ QVariant LibraryAlbumsModel::headerData(int section, Qt::Orientation orientation
     return QVariant();
 }
 
-int LibraryAlbumsModel::rowCount(const QModelIndex &parent) const
+int LibraryArtistsModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
 
-    return _albums.count();
+    return _artists.count();
 }
 
-int LibraryAlbumsModel::columnCount(const QModelIndex &parent) const
+int LibraryArtistsModel::columnCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
@@ -32,7 +31,7 @@ int LibraryAlbumsModel::columnCount(const QModelIndex &parent) const
     return _headers.count();
 }
 
-QVariant LibraryAlbumsModel::data(const QModelIndex &index, int role) const
+QVariant LibraryArtistsModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
         return QVariant();
@@ -43,9 +42,7 @@ QVariant LibraryAlbumsModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DisplayRole) {
         switch(col) {
         case ArtistColumn:
-            return _albums.at(row)->artist();
-        case AlbumColumn:
-            return _albums.at(row)->name();
+            return _artists.at(row)->name();
         default:
             break;
         }

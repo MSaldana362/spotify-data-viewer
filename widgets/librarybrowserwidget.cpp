@@ -20,16 +20,23 @@ LibraryBrowserWidget::LibraryBrowserWidget(QWidget *parent)
     _albumsProxyModel = new QSortFilterProxyModel(this);
     _albumsProxyModel->setSourceModel(_albumsModel);
 
+    _artistsModel = new LibraryArtistsModel(this);
+    _artistsModel->setArtists(_library.artists());
+    _artistsProxyModel = new QSortFilterProxyModel(this);
+    _artistsProxyModel->setSourceModel(_artistsModel);
+
     ui->tableTracks->setModel(_tracksProxyModel);
     ui->tableAlbums->setModel(_albumsProxyModel);
+    ui->tableArtists->setModel(_artistsProxyModel);
 
-    ui->tableTracks->horizontalHeader()->setStretchLastSection(true);
-    ui->tableTracks->setSortingEnabled(true);
+    for (QTableView *table : this->findChildren<QTableView*>()) {
+        table->horizontalHeader()->setStretchLastSection(true);
+        table->setSortingEnabled(true);
+    }
+
     ui->tableTracks->sortByColumn(LibraryTracksModel::ArtistColumn, Qt::AscendingOrder);
-
-    ui->tableAlbums->horizontalHeader()->setStretchLastSection(true);
-    ui->tableAlbums->setSortingEnabled(true);
     ui->tableAlbums->sortByColumn(LibraryAlbumsModel::ArtistColumn, Qt::AscendingOrder);
+    ui->tableArtists->sortByColumn(LibraryArtistsModel::ArtistColumn, Qt::AscendingOrder);
 }
 
 LibraryBrowserWidget::~LibraryBrowserWidget()

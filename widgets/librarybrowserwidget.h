@@ -7,6 +7,7 @@
 #include "../spotify/spotifylibrary.h"
 #include "../widgets/librarytracksmodel.h"
 #include "../widgets/libraryalbumsmodel.h"
+#include "../widgets/libraryartistsmodel.h"
 
 namespace Ui {
 class LibraryBrowserWidget;
@@ -30,6 +31,9 @@ private:
 
     LibraryAlbumsModel* _albumsModel;
     QSortFilterProxyModel* _albumsProxyModel;
+
+    LibraryArtistsModel* _artistsModel;
+    QSortFilterProxyModel* _artistsProxyModel;
 };
 
 #endif // LIBRARYBROWSERWIDGET_H
