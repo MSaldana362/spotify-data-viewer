@@ -24,15 +24,16 @@ public:
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    void setTracks(const QList<SpotifyTrack*> &value) { _tracks = value; }
-
-private:
-    QStringList _headers;
     enum Column {
         TrackColumn = 0,
         ArtistColumn,
         AlbumColumn,
     };
+
+    void setTracks(const QList<SpotifyTrack*> &value) { _tracks = value; }
+
+private:
+    QStringList _headers;
 
     QList<SpotifyTrack*> _tracks;
 };

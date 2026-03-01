@@ -13,9 +13,14 @@ LibraryBrowserWidget::LibraryBrowserWidget(QWidget *parent)
     _tracksModel = new LibraryTracksModel(this);
     _tracksModel->setTracks(_library.tracks());
 
-    ui->tableTracks->setModel(_tracksModel);
+    _tracksProxyModel = new QSortFilterProxyModel(this);
+    _tracksProxyModel->setSourceModel(_tracksModel);
+
+    ui->tableTracks->setModel(_tracksProxyModel);
     // ui->tableTracks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableTracks->horizontalHeader()->setStretchLastSection(true);
+    ui->tableTracks->setSortingEnabled(true);
+    ui->tableTracks->sortByColumn(LibraryTracksModel::ArtistColumn, Qt::AscendingOrder);
 }
 
 LibraryBrowserWidget::~LibraryBrowserWidget()

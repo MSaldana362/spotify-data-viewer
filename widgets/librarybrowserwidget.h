@@ -2,6 +2,7 @@
 #define LIBRARYBROWSERWIDGET_H
 
 #include <QWidget>
+#include <QSortFilterProxyModel>
 
 #include "../spotify/spotifylibrary.h"
 #include "../widgets/librarytracksmodel.h"
@@ -22,6 +23,8 @@ private:
     Ui::LibraryBrowserWidget *ui;
 
     SpotifyLibrary _library;
+
+    QSortFilterProxyModel* _tracksProxyModel;
     LibraryTracksModel* _tracksModel;
 };
 
