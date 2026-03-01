@@ -2,6 +2,9 @@
 #define LIBRARYTRACKSMODEL_H
 
 #include <QAbstractTableModel>
+#include <QList>
+
+#include "../spotify/spotifytrack.h"
 
 class LibraryTracksModel : public QAbstractTableModel
 {
@@ -21,7 +24,17 @@ public:
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
+    void setTracks(const QList<SpotifyTrack*> &value) { _tracks = value; }
+
 private:
+    QStringList _headers;
+    enum Column {
+        TrackColumn = 0,
+        ArtistColumn,
+        AlbumColumn,
+    };
+
+    QList<SpotifyTrack*> _tracks;
 };
 
 #endif // LIBRARYTRACKSMODEL_H

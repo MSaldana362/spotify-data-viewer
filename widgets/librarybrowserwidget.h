@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "../spotify/spotifylibrary.h"
 #include "../widgets/librarytracksmodel.h"
 
 namespace Ui {
@@ -20,6 +21,7 @@ public:
 private:
     Ui::LibraryBrowserWidget *ui;
 
+    SpotifyLibrary _library;
     LibraryTracksModel* _tracksModel;
 };
 
